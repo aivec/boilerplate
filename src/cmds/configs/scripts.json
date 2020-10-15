@@ -5,5 +5,5 @@
   "format": "prettier --check \"src/**/*.{ts,tsx}\"",
   "format:fix": "prettier --write \"src/**/*.{ts,tsx}\"",
   "build:prod": "aivec-wpreact build",
-  "build:dev": "aivec-wpreact build-dev"
+  "build:dev": "aivec-wpreact build --dev"
 }

@@ -1,6 +1,6 @@
 {
   "name": "@aivec/wp-typescript-react",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Build script for WordPress TypeScript React plugins/projects. Includes some features from @wordpress/scripts such as automatic asset inclusion/exclusion.",
   "bin": {
     "aivec-wpreact": "./dist/index.js"
@@ -58,7 +58,7 @@
     "stylelint-processor-styled-components": "^1.10.0",
     "terser-webpack-plugin": "^4.2.3",
     "thread-loader": "^3.0.0",
-    "webpack": "^5.1.0",
+    "webpack": "^4.8.3",
     "webpack-bundle-analyzer": "^3.9.0",
     "webpack-cli": "^4.0.0",
     "webpack-livereload-plugin": "^2.3.0"

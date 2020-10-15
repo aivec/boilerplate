@@ -1,4 +1,6 @@
 import { existsSync, readFileSync, writeFileSync } from 'fs';
+import spawn from 'cross-spawn';
+import path from 'path';
 import { ERR_FILE_NOT_FOUND, GenericError } from '../errors';
 import logger from '../logger';
 import eslintConfigJson from './configs/eslint.json';
@@ -12,6 +14,10 @@ export const desc =
   "Adds ESlint, Stylelint, and Prettier configs and helper scripts to project's package.json. Adds tsconfig.json to project root.";
 export const builder = {};
 export const handler = function (): void {
+  if (path.basename(process.cwd()) === 'wp-typescript-react') {
+    process.exit(0);
+  }
+
   const workingdir = process.cwd();
   const packageJson = `${workingdir}/package.json`;
   if (!existsSync) {
@@ -31,6 +37,29 @@ export const handler = function (): void {
   config.scripts = { ...config.scripts, ...scripts };
 
   try {
+    let res = spawn.sync('npm', ['i', '--save', 'react', 'react-dom', 'styled-components'], {
+      stdio: 'inherit',
+    });
+    if (res.status) {
+      process.exit(res.status);
+    }
+    res = spawn.sync(
+      'npm',
+      [
+        'i',
+        '--save-dev',
+        'typescript',
+        '@types/react',
+        '@types/react-dom',
+        '@types/styled-components',
+      ],
+      {
+        stdio: 'inherit',
+      },
+    );
+    if (res.status) {
+      process.exit(res.status);
+    }
     writeFileSync(packageJson, JSON.stringify(config, null, 2));
     writeFileSync(`${workingdir}/tsconfig.json`, JSON.stringify(tsconfigJson, null, 2));
     logger.info(
