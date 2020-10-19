@@ -29,13 +29,6 @@ export const handler = function (): void {
     process.exit(1);
   }
 
-  const config = JSON.parse(readFileSync(packageJson, 'utf8'));
-  config.eslintIgnore = ['test/**/*.js'];
-  config.eslintConfig = eslintConfigJson.eslintConfig;
-  config.prettier = prettierJson.prettier;
-  config.stylelint = stylelintJson.stylelint;
-  config.scripts = { ...config.scripts, ...scripts };
-
   try {
     let res = spawn.sync('npm', ['i', '--save', 'react', 'react-dom', 'styled-components'], {
       stdio: 'inherit',
@@ -60,6 +53,14 @@ export const handler = function (): void {
     if (res.status) {
       process.exit(res.status);
     }
+
+    const config = JSON.parse(readFileSync(packageJson, 'utf8'));
+    config.eslintIgnore = ['test/**/*.js'];
+    config.eslintConfig = eslintConfigJson.eslintConfig;
+    config.prettier = prettierJson.prettier;
+    config.stylelint = stylelintJson.stylelint;
+    config.scripts = { ...config.scripts, ...scripts };
+
     writeFileSync(packageJson, JSON.stringify(config, null, 2));
     writeFileSync(`${workingdir}/tsconfig.json`, JSON.stringify(tsconfigJson, null, 2));
     logger.info(
