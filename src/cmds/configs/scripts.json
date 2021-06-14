@@ -1,9 +1,0 @@
-{
-  "stylelint": "stylelint './src/**/*.tsx'",
-  "lint": "eslint --ext .ts,.tsx src",
-  "lint:fix": "eslint --fix --ext .ts,.tsx src",
-  "format": "prettier --check \"src/**/*.{ts,tsx}\"",
-  "format:fix": "prettier --write \"src/**/*.{ts,tsx}\"",
-  "build:prod": "aivec-wpreact build",
-  "build:dev": "aivec-wpreact build --dev"
-}
