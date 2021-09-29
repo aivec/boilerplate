@@ -9,9 +9,11 @@ if (!isProduction) {
   index = 1;
 }
 
+// removes CleanWebpackPlugin plugin
 defaultConfig.plugins.shift();
+
 defaultConfig.module.rules[index].test = /\.(ts|js)x?$/;
-defaultConfig.module.rules[index].use[1].options.plugins = [
+defaultConfig.module.rules[index].use[0].options.plugins = [
   [
     'babel-plugin-styled-components',
     {

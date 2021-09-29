@@ -26,6 +26,9 @@
   "author": "Evan D Shaw <evandanielshaw@gmail.com>",
   "license": "GPL-2.0",
   "bundleDependencies": false,
+  "peerDependencies": {
+    "@wordpress/scripts": ">= 18.0.0"
+  },
   "dependencies": {
     "cross-env": "^7.0.3",
     "cross-spawn": "^7.0.3",

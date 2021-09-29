@@ -9,7 +9,9 @@ if (!isProduction) {
   index = 1;
 }
 
+// removes CleanWebpackPlugin plugin
 defaultConfig.plugins.shift();
+
 defaultConfig.module.rules[index].test = /\.(ts|js)x?$/;
 
 module.exports = {
