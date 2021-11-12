@@ -22,8 +22,12 @@ const headers: {
   error: `${logger.RED}[FATAL]${logger.NC}`,
 };
 
+logger.line = function (): void {
+  console.log();
+};
+
 logger.logErrorMessage = function (error: GenericError): void {
-  console.log(`\n${headers.error} <${error.code}>: ${error.message}`);
+  console.log(`${headers.error} <${error.code}>: ${error.message}`);
 };
 
 logger.log = function (level: string, message: string | Record<string, unknown>): void {
@@ -33,9 +37,9 @@ logger.log = function (level: string, message: string | Record<string, unknown>)
   }
 
   if (levels.includes(level)) {
-    console.log(`\n${headers[level]} ${message}`);
+    console.log(`${headers[level]} ${message}`);
   } else {
-    console.log(`\n[${level}] ${message}`);
+    console.log(`[${level}] ${message}`);
   }
 };
 

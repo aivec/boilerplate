@@ -1,0 +1,6 @@
+{
+  "lint": "eslint --ext .ts,.tsx src",
+  "lint:fix": "eslint --fix --ext .ts,.tsx src",
+  "build:dev": "cross-env NODE_ENV=development webpack --config ./node_modules/@aivec/boilerplate/src/configs/standalone-js/webpack.config.js",
+  "build:prod": "cross-env NODE_ENV=production webpack --config ./node_modules/@aivec/boilerplate/src/configs/standalone-js/webpack.config.js"
+}

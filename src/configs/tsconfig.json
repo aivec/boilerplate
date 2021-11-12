@@ -21,6 +21,6 @@
       "src/*": ["src/*"]
     }
   },
-  "exclude": ["node_modules", "dist", "webpack.config.js"],
+  "exclude": ["node_modules", "dist", "webpack.config.js", "gulpfile.js"],
   "include": ["src/**/*.ts", "src/**/*.tsx"]
 }

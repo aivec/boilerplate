@@ -1,0 +1,6 @@
+{
+  "lint": "eslint --ext .ts,.tsx src",
+  "lint:fix": "eslint --fix --ext .ts,.tsx src",
+  "build:dev": "cross-env NODE_ENV=development wp-scripts build --config ./node_modules/@aivec/boilerplate/src/configs/wp-ts-react/webpack.config.js",
+  "build:prod": "cross-env NODE_ENV=production wp-scripts build --config ./node_modules/@aivec/boilerplate/src/configs/wp-ts-react/webpack.config.js"
+}

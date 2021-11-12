@@ -20,25 +20,27 @@ export const overwriteJsonFile = (
   config: { [key: string]: any },
   backup = true,
 ): void => {
+  const fname = path.basename(fpath);
+  let whatdo = 'updated';
   if (!existsSync(fpath)) {
-    const err = new GenericError(ERR_FILE_NOT_FOUND, `${fpath} does not exist`);
-    logger.logErrorMessage(err);
-    process.exit(1);
-  }
-  if (backup) {
-    copyFileSync(fpath, `${fpath}.backup`);
-    logger.info(`Copied current ${logger.green(fpath)} to ${logger.yellow(`${fpath}.backup`)}`);
+    whatdo = 'created';
+    logger.info(`${fname} does not exist. No backup required.`);
+  } else {
+    if (backup) {
+      copyFileSync(fpath, `${fpath}.backup`);
+      logger.info(`Copied current ${logger.green(fname)} to ${logger.yellow(`${fname}.backup`)}`);
+    }
   }
   writeFileSync(fpath, JSON.stringify(config, null, 2));
-  logger.info(`Success. ${logger.green(fpath)} has been updated.`);
+  logger.info(`Success. ${logger.green(fname)} has been ${whatdo}.`);
 };
 
-export const overwritePackageJson = (config: { [key: string]: any }): void => {
-  overwriteJsonFile(getPackageJsonPath(), config);
+export const overwritePackageJson = (config: { [key: string]: any }, backup = true): void => {
+  overwriteJsonFile(getPackageJsonPath(), config, backup);
 };
 
 export const packageJsonExistsOrExit = (): void => {
-  if (path.basename(process.cwd()) === 'wp-typescript-react') {
+  if (path.basename(process.cwd()) === 'boilerplate') {
     process.exit(0);
   }
 

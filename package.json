@@ -1,9 +1,9 @@
 {
-  "name": "@aivec/wp-typescript-react",
-  "version": "2.0.1",
-  "description": "Build script for WordPress TypeScript React plugins/projects. Includes some features from @wordpress/scripts such as automatic asset inclusion/exclusion.",
+  "name": "@aivec/boilerplate",
+  "version": "3.0.0",
+  "description": "Boilerplate configurations (TS, JS, React, etc.) for various WordPress plugins/projects. Includes some features from @wordpress/scripts such as automatic asset inclusion/exclusion.",
   "bin": {
-    "aivec-wpreact": "./dist/index.js"
+    "avc-boilerplate": "./dist/index.js"
   },
   "scripts": {
     "lint": "eslint --ext .ts src",
@@ -15,7 +15,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/aivec/wp-typescript-react.git"
+    "url": "git+https://github.com/aivec/boilerplate.git"
   },
   "keywords": [
     "WordPress",

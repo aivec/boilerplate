@@ -1,5 +1,0 @@
-{
-  "stylelint": "stylelint './src/**/*.tsx'",
-  "build:dev": "cross-env NODE_ENV=development wp-scripts build --config ./node_modules/@aivec/wp-typescript-react/src/configs/webpack.config.styled-components.js",
-  "build:prod": "cross-env NODE_ENV=production wp-scripts build --config ./node_modules/@aivec/wp-typescript-react/src/configs/webpack.config.styled-components.js"
-}

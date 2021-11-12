@@ -1,17 +1,22 @@
 import logger from '../../logger';
-import { getPackageJson, overwritePackageJson } from '../../utils/files';
+import { getPackageJson, overwritePackageJson, packageJsonExistsOrExit } from '../../utils/files';
 import { installSave, installSaveDev } from '../../utils/npm';
-import stylelintJson from '../../configs/stylelint.json';
-import scripts from '../../configs/scripts.styled-components.json';
+import stylelint from '../../configs/wp-ts-react/styled-components/stylelint.json';
+import scripts from '../../configs/wp-ts-react/styled-components/scripts.json';
 
 export const styledComponents = (): void => {
+  packageJsonExistsOrExit();
+
   try {
+    logger.info('Setting up styled-components configuration...');
+
     const config = getPackageJson();
-    config.stylelint = stylelintJson.stylelint;
+    config.stylelint = stylelint;
     config.scripts = { ...config.scripts, ...scripts };
 
-    overwritePackageJson(config);
-    logger.info('Installing packages...');
+    // dont backup package.json since it is already backed up
+    overwritePackageJson(config, false);
+    logger.info('Installing styled-components packages...');
     installSave(['styled-components']);
     installSaveDev([
       '@types/styled-components',
