@@ -1,19 +1,14 @@
 import { existsSync, readFileSync, writeFileSync, copyFileSync } from 'fs';
 import path from 'path';
-import { ERR_FILE_NOT_FOUND, GenericError } from '../errors';
-import logger from '../logger';
+import { ERR_FILE_NOT_FOUND, GenericError } from '../errors.js';
+import logger from '../logger.js';
 
-export const getWorkingDirPath = (): string => {
-  return process.cwd();
-};
+export const getWorkingDirPath = (): string => process.cwd();
 
-export const getPackageJsonPath = (): string => {
-  return `${getWorkingDirPath()}/package.json`;
-};
+export const getPackageJsonPath = (): string => `${getWorkingDirPath()}/package.json`;
 
-export const getPackageJson = (): { [key: string]: any } => {
-  return JSON.parse(readFileSync(getPackageJsonPath(), 'utf8'));
-};
+export const getPackageJson = (): { [key: string]: any } =>
+  JSON.parse(readFileSync(getPackageJsonPath(), 'utf8'));
 
 export const overwriteJsonFile = (
   fpath: string,
@@ -25,11 +20,9 @@ export const overwriteJsonFile = (
   if (!existsSync(fpath)) {
     whatdo = 'created';
     logger.info(`${fname} does not exist. No backup required.`);
-  } else {
-    if (backup) {
-      copyFileSync(fpath, `${fpath}.backup`);
-      logger.info(`Copied current ${logger.green(fname)} to ${logger.yellow(`${fname}.backup`)}`);
-    }
+  } else if (backup) {
+    copyFileSync(fpath, `${fpath}.backup`);
+    logger.info(`Copied current ${logger.green(fname)} to ${logger.yellow(`${fname}.backup`)}`);
   }
   writeFileSync(fpath, JSON.stringify(config, null, 2));
   logger.info(`Success. ${logger.green(fname)} has been ${whatdo}.`);

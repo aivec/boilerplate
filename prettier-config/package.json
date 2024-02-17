@@ -1,0 +1,10 @@
+{
+  "name": "@aivec/prettier-config",
+  "version": "1.0.0",
+  "description": "Boilerplate configurations (TS, JS, React, etc.) for various WordPress plugins/projects. Includes some features from @wordpress/scripts such as automatic asset inclusion/exclusion.",
+  "type": "module",
+  "main": ".prettierrc.js",
+  "peerDependencies": {
+    "prettier": ">=3"
+  }
+}

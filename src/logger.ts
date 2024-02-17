@@ -1,4 +1,4 @@
-import { GenericError } from './errors';
+import { GenericError } from './errors.js';
 
 const logger: any = {};
 
@@ -60,7 +60,7 @@ logger.logContext = function (value: any): void {
 };
 
 logger.syntaxError = function (message: string, fileName: string): void {
-  console.log(`\n${headers['error']}  ${fileName} SYNTAX ERROR`);
+  console.log(`\n${headers.error}  ${fileName} SYNTAX ERROR`);
   console.log(`${logger.CYAN}details:${logger.NC} ${message}`);
 };
 

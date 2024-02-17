@@ -1,0 +1,44 @@
+{
+  "name": "@aivec/eslint-config-ts-react",
+  "version": "1.0.0",
+  "description": "Boilerplate configurations (TS, JS, React, etc.) for various WordPress plugins/projects. Includes some features from @wordpress/scripts such as automatic asset inclusion/exclusion.",
+  "type": "module",
+  "main": "eslint.config.js",
+  "scripts": {
+    "lint": "ESLINT_USE_FLAT_CONFIG=true eslint src",
+    "lint:fix": "eslint --fix --ext .ts src",
+    "format": "prettier -c src/**/*.ts",
+    "format:fix": "prettier --write src/**/*.ts",
+    "build": "tsc -p .",
+    "start": "ts-node src/index.ts"
+  },
+  "dependencies": {
+    "@eslint/eslintrc": "^2.1.4",
+    "@typescript-eslint/eslint-plugin": "^6.13.2",
+    "@typescript-eslint/parser": "^6.13.2",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-airbnb-typescript": "^17.1.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-import": "^2.29.0",
+    "eslint-plugin-jsx-a11y": "^6.8.0",
+    "eslint-plugin-react": "^7.33.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "globals": "^13.23.0"
+  },
+  "peerDependencies": {
+    "eslint": ">=8",
+    "typescript": ">=5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aivec/boilerplate.git"
+  },
+  "keywords": [
+    "WordPress",
+    "TypeScript",
+    "React",
+    "webpack"
+  ],
+  "author": "Evan D Shaw <evandanielshaw@gmail.com>",
+  "license": "GPL-2.0"
+}

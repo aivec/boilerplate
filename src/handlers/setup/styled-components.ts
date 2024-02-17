@@ -1,6 +1,6 @@
-import logger from '../../logger';
-import { getPackageJson, overwritePackageJson, packageJsonExistsOrExit } from '../../utils/files';
-import { installSave, installSaveDev } from '../../utils/npm';
+import logger from '../../logger.js';
+import { getPackageJson, overwritePackageJson, packageJsonExistsOrExit } from '../../utils/files.js';
+import { installSave, installSaveDev } from '../../utils/npm.js';
 import stylelint from '../../configs/wp-ts-react/styled-components/stylelint.json';
 import scripts from '../../configs/wp-ts-react/styled-components/scripts.json';
 

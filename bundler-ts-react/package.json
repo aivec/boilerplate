@@ -1,0 +1,13 @@
+{
+  "name": "@aivec/wp-bundler-ts-react",
+  "version": "1.0.0",
+  "description": "Webpack bundler for TypeScript/React WordPress projects",
+  "main": "webpack.config.js",
+  "dependencies": {
+    "@wordpress/scripts": "^26.18.0",
+    "tsconfig-paths-webpack-plugin": "^4.1.0"
+  },
+  "peerDependencies": {
+    "typescript": ">=5"
+  }
+}

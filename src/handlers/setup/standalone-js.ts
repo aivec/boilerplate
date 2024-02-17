@@ -1,6 +1,6 @@
-import logger from '../../logger';
-import { getPackageJson, overwritePackageJson, packageJsonExistsOrExit } from '../../utils/files';
-import { installSaveDev } from '../../utils/npm';
+import logger from '../../logger.js';
+import { getPackageJson, overwritePackageJson, packageJsonExistsOrExit } from '../../utils/files.js';
+import { installSaveDev } from '../../utils/npm.js';
 import prettier from '../../configs/prettier.json';
 import eslint from '../../configs/standalone-js/eslint.json';
 import scripts from '../../configs/standalone-js/scripts.json';

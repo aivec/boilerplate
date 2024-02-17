@@ -1,4 +1,4 @@
-import { wpTsReact } from '../../handlers/setup/wp-ts-react';
+import { wpTsReact } from '../../handlers/setup/wp-ts-react.js';
 
 exports.command = 'wp-ts-react';
 exports.desc = `Sets up a WordPress TypeScript React configuration

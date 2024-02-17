@@ -1,4 +1,4 @@
-import { standaloneJs } from '../../handlers/setup/standalone-js';
+import { standaloneJs } from '../../handlers/setup/standalone-js.js';
 
 exports.command = 'standalone-js';
 exports.desc = `Sets up a standalone JS configuration.

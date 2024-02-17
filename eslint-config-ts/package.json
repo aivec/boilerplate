@@ -1,0 +1,51 @@
+{
+  "name": "@aivec/eslint-typescript",
+  "version": "3.0.0",
+  "description": "Boilerplate configurations (TS, JS, React, etc.) for various WordPress plugins/projects. Includes some features from @wordpress/scripts such as automatic asset inclusion/exclusion.",
+  "bin": {
+    "avc-boilerplate": "./dist/index.js"
+  },
+  "type": "module",
+  "scripts": {
+    "lint": "ESLINT_USE_FLAT_CONFIG=true eslint src",
+    "lint:fix": "eslint --fix --ext .ts src",
+    "format": "prettier -c src/**/*.ts",
+    "format:fix": "prettier --write src/**/*.ts",
+    "build": "tsc -p .",
+    "start": "ts-node src/index.ts"
+  },
+  "peerDependencies": {
+    "@wordpress/scripts": ">= 26"
+  },
+  "dependencies": {
+    "cross-env": "^7.0.3",
+    "cross-spawn": "^7.0.3",
+    "glob": "^10.3.10",
+    "yargs": "^17.7.2",
+    "@eslint/eslintrc": "^2.1.4",
+    "@types/cross-spawn": "^6.0.6",
+    "@types/node": "^20.10.3",
+    "@types/yargs": "^17.0.32",
+    "@typescript-eslint/eslint-plugin": "^6.13.1",
+    "@typescript-eslint/parser": "^6.13.1",
+    "eslint": "^8.55.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-airbnb-typescript": "^17.1.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-import": "^2.29.0"
+  },
+  "eslintIgnore": [
+    "test/**/*.js"
+  ],
+  "eslintConfig": {
+    "extends": [
+      "airbnb-base",
+      "airbnb-typescript/base",
+      "prettier"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+      "project": "./tsconfig.json"
+    }
+  }
+}

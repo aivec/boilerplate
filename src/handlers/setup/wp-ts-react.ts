@@ -4,14 +4,14 @@ import {
   getWorkingDirPath,
   overwritePackageJson,
   overwriteJsonFile,
-} from '../../utils/files';
-import { installSave, installSaveDev } from '../../utils/npm';
-import logger from '../../logger';
+} from '../../utils/files.js';
+import { installSave, installSaveDev } from '../../utils/npm.js';
+import logger from '../../logger.js';
 import eslintConfig from '../../configs/wp-ts-react/eslint.json';
 import scripts from '../../configs/wp-ts-react/scripts.json';
 import prettier from '../../configs/prettier.json';
 import tsconfigJson from '../../configs/tsconfig.json';
-import { styledComponents } from './styled-components';
+import { styledComponents } from './styled-components.js';
 
 export const wpTsReact = ({ wsc }: { wsc?: boolean }): void => {
   packageJsonExistsOrExit();
